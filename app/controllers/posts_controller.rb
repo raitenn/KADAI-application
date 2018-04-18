@@ -9,9 +9,14 @@ class PostsController < ApplicationController
 	    # ストロングパラメーターを使用
 	     post = Post.new(post_params)
 	    # DBへ保存する
-	     post.save
+	     if post.save
 	    # トップ画面へリダイレクト
-	    redirect_to '/posts/new'
+
+	    redirect_to post_path(post.id)
+	    flash[:notice] = "Book was successfully created."
+	end
+
+
 	end
 
 	def edit
@@ -23,15 +28,24 @@ class PostsController < ApplicationController
 
 	def update
 	    post = Post.find(params[:id])
+	    if 
 	    post.update(post_params)
 	    redirect_to post_path(post.id)
+	    flash[:notice] = "Book was successfully created."
+	end
+
 	end
 
 	 def destroy
         post = Post.find(params[:id])
+        if
         post.destroy
-        redirect_to posts_new_path
+        redirect_to new_post_path
+        flash[:notice] = "Book was successfully created."
     end
+    end
+
+
 
 
   private

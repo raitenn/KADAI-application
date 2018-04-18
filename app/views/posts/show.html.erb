@@ -1,7 +1,8 @@
+<%= flash[:notice]%>
 <h1>タイトル</h1>
 <%= @post.title %>
 <h1>本文</h1>
 <%= @post.body %>
-
+<%= link_to "戻る", '/posts/new' %>
 <%= link_to "編集", edit_post_path(@post.id) %> 
-<%= link_to "削除", destroy_post_path(@post.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+<%= link_to "削除", post_path(@post.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
