@@ -31,7 +31,7 @@ class PostsController < ApplicationController
 	    if 
 	    post.update(post_params)
 	    redirect_to post_path(post.id)
-	    flash[:notice] = "Book was successfully created."
+	    flash[:notice] = "Book was successfully update."
 	end
 
 	end
@@ -41,7 +41,7 @@ class PostsController < ApplicationController
         if
         post.destroy
         redirect_to new_post_path
-        flash[:notice] = "Book was successfully created."
+        flash[:notice] = "Book was successfully destroyed."
     end
     end
 
